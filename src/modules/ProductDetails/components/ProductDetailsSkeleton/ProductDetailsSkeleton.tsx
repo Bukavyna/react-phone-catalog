@@ -1,30 +1,28 @@
-import styles from './ProductDetailsSkeleton.module.scss';
-
 import { Skeleton } from '../../../../components/Skeleton';
 
 export const ProductDetailsSkeleton = () => {
   return (
-    <div className={styles.containerProductDetailsPage}>
-      <div className={styles.productPageHero}>
-        <section className={styles.imagesBlock}>
+    <div className="containerProductDetailsPage">
+      <div className="productPageHero">
+        <section className="imagesBlock">
           <Skeleton />
         </section>
 
-        <section className={styles.selectionBlock}>
+        <section className="selectionBlock">
           <Skeleton />
         </section>
       </div>
 
-      <div className={styles.description}>
-        <div className={styles.about}>
+      <div className="description">
+        <div className="about">
           <Skeleton />
         </div>
-        <div className={`${styles.skeleton} ${styles.techSpecs}`}>
+        <div className="skeleton techSpecs">
           <Skeleton />
         </div>
       </div>
 
-      <div className={styles.alsoLike}>
+      <div className="alsoLike">
         <Skeleton />
       </div>
     </div>
