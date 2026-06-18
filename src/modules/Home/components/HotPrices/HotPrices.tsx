@@ -10,7 +10,7 @@ export const HotPrices: React.FC = () => {
   return (
     <ProductsSlider
       title={t('title.hotPrices')}
-      productsPreset={ProductsPresetType.HotPrices}
+      productsPresetType={ProductsPresetType.HotPrices}
     />
   );
 };

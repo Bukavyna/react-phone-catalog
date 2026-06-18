@@ -1,57 +1,125 @@
-# Product Catalog - Modern Phone & Gadget Store
+# Nice Gadgets Store
 
-This project showcases a modern, fully responsive product catalog website designed to help users discover, filter, and purchase stylish tech gadgets and phones. The site provides detailed descriptions of product categories, a dynamic product details section, and an engaging user interface with local state persistence for user selections.
+A responsive React + TypeScript catalog for phones, tablets, and accessories.
 
-## 🚀 Live Preview
+This project started as the Mate Academy Phone Catalog task, but I used it as a chance to build a more complete product-like experience. Besides the base catalog functionality, I added localization, theme switching, animated icons, persistent cart/favorites state, loading states, and a cleaner UI flow.
 
-Experience the live website: [Phone Catalog Demo](https://bukavyna.github.io/react-phone-catalog/)
-
----
-
-## Technologies Used
-
-### Core
-* **React** (v18.2.0) – UI framework
-* **TypeScript** (v5.0.2) – Type safety
-* **SCSS** (v7.0.3) – Styling
-
-### State Management
-* **Redux Toolkit** (v1.9.5) – Application state
-* **Redux Persist** (v6.0.0) – State persistence (Favorites & Cart)
-
-### UI/UX
-* **React Router** (v6.14.2) – Navigation
-* **Swiper** (v10.0.4) – Image galleries on product pages
-* **use-react-router-breadcrumbs** (v4.0.1) – Navigation breadcrumbs
-* **React Loading Skeleton** (v3.3.1) – Elegant loading states
-
-### Development & Deployment
-* **Vite** (v4.4.5) – Build tool
-* **ESLint** (v8.45.0) – Code quality
-* **GitHub Pages** – Hosting and deployment
-
----
+[Demo](https://Bukavyna.github.io/react-phone-catalog/)
 
 ## Features
 
-* **Responsive Design:** Optimized for different screen sizes and devices, with breakpoints tailored for mobile, tablet, and desktop layouts (320px, 640px, 1200px, 1440px).
-* **Navigation:** Built with `react-router-dom` to enable smooth navigation between multiple pages (Home, Catalog, Product Details, Cart, Favorites) with URL-based search parameters.
-* **Favorites & Cart:** Easily add items to favorites or the shopping cart, featuring real-time price calculations and item quantity updates with persistence across page reloads.
-* **Product Filtering:** Filter products dynamically by capacity and color directly inside the product details card.
-* **Sorting:** Sort product lists based on criteria like release year, price, or alphabetically.
-* **Search:** Quick and efficient product filtering using query parameters in the search bar.
-* **Pagination:** Navigate through large lists of items with custom pagination, giving the option to choose items per page.
-* **Sticky Header:** Keeps the navigation bar visible as you scroll down the page.
-* **Scroll to Top Button:** Easily return to the top of the page with a single click.
-* **Loader & Skeletons:** Premium user experience with smooth loading skeletons and indicators while processing data.
+- Product catalog with separate pages for phones, tablets, and accessories
+- Product details page with image gallery, color picker, and capacity picker
+- Shopping cart with quantity controls and localStorage persistence
+- Favorites page with saved products
+- Product sliders for new models, hot prices, and suggested products
+- Sorting and pagination synced with URL search params
+- Responsive layout for mobile, tablet, and desktop
+- Breadcrumbs, back navigation, sticky header, and footer
+- Loading states, skeletons, and basic error handling
+- English and Ukrainian localization
+- Theme switching with several visual themes
+- Animated UI icons using Lordicon
 
----
+## Why I Built It This Way
+
+I wanted this project to feel less like a static task solution and more like a small real store interface. The main focus was on reusable UI, predictable state management, and details that make the app nicer to use: saved cart items, saved favorites, remembered language/theme, smooth navigation, and clear product pages.
+
+It also gave me a good place to practice TypeScript with React Router, Context, custom hooks, localStorage, SCSS Modules, and i18next.
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- React Router
+- SCSS Modules
+- Vite
+- i18next
+- react-i18next
+- Lordicon
+- React Hot Toast
+- Cypress
+- ESLint
+- Prettier
+- Stylelint
+
+## Project Structure
+
+```txt
+src/
+  api/                 API client and product loaders
+  components/          Shared UI components
+  context/             Cart, favorites, and theme providers
+  hooks/               Reusable app hooks
+  i18n/                Language configuration and translations
+  Layout/              Header, footer, navigation, layout shell
+  modules/             Page-level modules
+  styles/              Global styles, variables, mixins, themes
+  types/               Shared TypeScript types
+  utils/               Sorting, filtering, errors, helpers
+```
 
 ## Getting Started
 
-Follow these instructions to set up the project locally:
+Clone the repository:
 
-### 1. Clone the repository:
 ```bash
-git clone [https://github.com/Bukavyna/react-phone-catalog.git](https://github.com/Bukavyna/react-phone-catalog.git)
-cd react-phone-catalog
+git clone https://github.com/Bukavyna/react-phone-catalog.git
+cd react_phone-catalog
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the project locally:
+
+```bash
+npm start
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run linting:
+
+```bash
+npm run lint
+```
+
+Run tests:
+
+```bash
+npm test
+```
+
+## Available Pages
+
+- `/` - Home page
+- `/phones` - Phones catalog
+- `/tablets` - Tablets catalog
+- `/accessories` - Accessories catalog
+- `/:category/:productId` - Product details page
+- `/cart` - Shopping cart
+- `/favorites` - Favorite products
+- `*` - Not found page
+
+## Internationalization
+
+Translations are stored in:
+
+```txt
+src/i18n/locales/en/common.json
+src/i18n/locales/uk/common.json
+```
+
+The app currently supports English and Ukrainian. The selected language is remembered between visits.
+
+## Notes
+
+This project is based on the Mate Academy React + TypeScript Phone Catalog task and extends it with additional UI, state management, localization, theme, and animation features.

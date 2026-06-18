@@ -10,7 +10,7 @@ export const ProductDetailsPage = () => {
 
   const { details, loading, error } = useProductDetails(productId);
 
-  if (loading && !productId) {
+  if (loading) {
     return <ProductDetailsSkeleton />;
   }
 
@@ -18,5 +18,5 @@ export const ProductDetailsPage = () => {
     return <h2>Error: {error}</h2>;
   }
 
-  return <ProductDetailsContent details={details} />;
+  return <ProductDetailsContent details={details} loading={loading} />;
 };

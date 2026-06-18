@@ -10,7 +10,7 @@ export const NewModels: React.FC = () => {
   return (
     <ProductsSlider
       title={t('title.newModels')}
-      productsPreset={ProductsPresetType.Newest}
+      productsPresetType={ProductsPresetType.Newest}
     />
   );
 };

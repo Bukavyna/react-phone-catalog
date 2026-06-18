@@ -20,16 +20,13 @@ export const CatalogPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
   const { t } = useTranslation();
 
-  // 1. ХУКИ ЗАВЖДИ ЗВЕРХУ (до будь-яких return)
   const [searchParams, setSearchParams] = useSearchParams();
   const { loading, error, products } = useProducts(category || 'phones');
 
-  // 2. Параметри з URL
   const sortBy = (searchParams.get('sort') as SortType) || SortType.Newest;
   const perPage = searchParams.get('perPage') || '16';
   const currentPage = Number(searchParams.get('page')) || 1;
 
-  // 3. Функція оновлення (має бути оголошена ДО використання в обробниках)
   const updateSearchWith = (params: { [key: string]: string | null }) => {
     const newParams = new URLSearchParams(searchParams);
 
@@ -44,7 +41,6 @@ export const CatalogPage: React.FC = () => {
     setSearchParams(newParams);
   };
 
-  // 4. useMemo для фільтрації (теж хук, тому до return)
   const visibleProducts = useMemo(() => {
     if (!products) {
       return [];
@@ -53,7 +49,6 @@ export const CatalogPage: React.FC = () => {
     return filterProductsByCategory(products, category || 'phones');
   }, [products, category]);
 
-  // 5. ТЕПЕР МОЖНА РОБИТИ ПЕРЕВІРКИ (Early returns)
   if (!category) {
     return <NotFound />;
   }
@@ -76,7 +71,6 @@ export const CatalogPage: React.FC = () => {
     return <p className={styles.empty}>Product not found</p>;
   }
 
-  // 6. Логіка обчислень
   const sortedProducts = sortProducts(visibleProducts, sortBy);
   const itemsPerPage =
     perPage === 'all' ? sortedProducts.length : Number(perPage);
@@ -89,7 +83,6 @@ export const CatalogPage: React.FC = () => {
     indexOfLastProduct,
   );
 
-  // 7. Обробники
   const onSortChange = (value: string) =>
     updateSearchWith({ sort: value, page: '1' });
   const onPerPageChange = (value: string) =>

@@ -29,14 +29,14 @@
 
     &:hover::after {
       left: 0;
-      bottom: -18px;
+      bottom: -16px;
 
       width: 100%;
       height: 2px;
       background-color: var(--hover-color-primary);
 
       @media (min-width: $breakpoint-desktop) {
-        bottom: -27px;
+        bottom: -25px;
       }
     }
   }

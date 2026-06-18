@@ -1,21 +1,22 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
 import styles from './ProductDetailsContent.module.scss';
 
-import { useProductDetails } from '../../../../hooks/useProductDetails';
 import { SuggestedProducts } from '../SuggestedProducts';
 import { useCrossFade } from '../../../../hooks/useCrossFade';
 import { ProductView } from '../ProductView';
+import { ProductDetailsType } from '../../../../types/product-details.types';
 
-export const ProductDetailsContent: React.FC = () => {
-  const { productId } = useParams<{ productId: string }>();
-  const { details, loading, error } = useProductDetails(productId);
+interface ProductDetailsContentProps {
+  details: ProductDetailsType | null;
+  loading: boolean;
+}
+
+export const ProductDetailsContent: React.FC<ProductDetailsContentProps> = ({
+  details,
+  loading,
+}) => {
   const { current, previous } = useCrossFade(details, 500);
-
-  if (error) {
-    return <h2>Error: {error}</h2>;
-  }
 
   if (!current && !previous && loading) {
     return <div className={styles.containerProductDetailsPage}>Loading...</div>;
